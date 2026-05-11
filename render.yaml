@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: wimbledon-2026-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATA_PATH
+        value: data/Wimbledon_2026_Raw_Input_With_H2H.xlsx
+      - key: ALLOWED_ORIGINS
+        value: [your-frontend-domain.vercel.app](https://your-frontend-domain.vercel.app)
